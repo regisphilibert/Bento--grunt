@@ -1,0 +1,126 @@
+$palette1: rgba(19, 60, 85, 1);
+$palette2: rgba(56, 111, 164, 1);
+$palette3: rgba(89, 165, 216, 1);
+$palette4: rgba(132, 210, 246, 1);
+$palette5: rgba(145, 229, 246, 1);
+
+$palette1: hsla(61%, 74%, 82%, 1);
+$palette2: hsla(45%, 75%, 72%, 1);
+$palette3: hsla(27%, 97%, 65%, 1);
+$palette4: hsla(14%, 100%, 55%, 1);
+$palette5: hsla(242%, 94%, 7%, 1);
+
+$palette1: hsla(51%, 58%, 82%, 1);
+$palette2: hsla(63%, 52%, 72%, 1);
+$palette3: hsla(27%, 97%, 65%, 1);
+$palette4: hsla(16%, 72%, 53%, 1);
+$palette5: hsla(25%, 51%, 13%, 1);
+
+$cWhite:$palette1;
+header, footer{
+	background-color:$palette4;
+	padding:1em;
+}
+html, body{
+	height:100%;
+}
+body{
+	display:flex;
+	flex-direction:column;
+	background-color:$palette1;
+	color:$palette5;
+}
+
+body{
+	position: relative;
+	&:after{
+		content:"Phil with Sass";
+		display: block;
+		position: fixed;
+		bottom:10px;
+		right:10px;
+		padding:10px;
+		background:black;
+		color:white;
+		opacity: .3;
+	}
+}
+
+main{
+	flex:1 0 auto;
+}
+main{
+	padding:1em 0;
+}
+a{
+	color:inherit;
+}
+.phi-Logo{
+	font-size: 30px;
+	font-weight:$fwSemiBold;
+	color:$palette5;
+	display: block;
+	span, .fa{
+		display: inline-block;
+		vertical-align: middle
+	}
+	.fa{
+		font-size:50px;
+	}
+}
+ul.phi-MainNav, ul.phi-MainNav__sub{
+	list-style:none;
+	padding:0;
+	margin-bottom:0;
+}
+.phi-MainNav{
+	display:flex;
+	justify-content:flex-start;
+	font-weight:$fwSemiBold;
+	border-top:1px solid currentColor;
+	margin-top:1em;
+	white-space:nowrap;
+	a{
+		color:inherit;
+	}
+}
+.phi-MainNav__sub{
+	display: none;
+	position: absolute;
+	top:100%;
+	left:-1px;
+	background:$palette4;
+	//border:1px solid black;
+	.phi-MainNav__sub{
+		left:100%;
+		top:0;
+		background-color:$palette2 !important;
+	}
+	.phi-MainNav__item:nth-child(odd){
+		background:$palette5;
+		color:$cWhite;
+	}
+	.phi-MainNav__item--has-children{
+		&:before{
+			content:">";
+			float:right;
+			font-weight: $fwBold;
+		}
+	}
+}
+.phi-MainNav__item{
+	padding:5px 10px;
+	position: relative;
+	&:hover{
+		& > .phi-MainNav__sub{
+			display: block;
+		}
+	}
+	.phi-MainNav__item{
+		//border-bottom:1px solid black;
+		color:black;
+	}
+}
+body .phi-Well{
+	background-color:$palette3;
+}

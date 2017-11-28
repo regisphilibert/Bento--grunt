@@ -1,0 +1,7 @@
+
+
+dist/
+certificatates/
+.sass-cache/
+
+node_modules
