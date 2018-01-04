@@ -135,7 +135,7 @@ module.exports = function (grunt) {
           //data: {debug: false, timestamp: '<%= grunt.template.today("yyyy-mm-dd hh:mm:ss") %>'},
           data: function(dest, src) {
             // Return an object of data to pass to templates
-            return require('./src/pug/data/globals.json');
+            return require('./data/globals.json');
           }
         },
         files: [{
@@ -145,42 +145,6 @@ module.exports = function (grunt) {
           src: ['{,*/}*.{pug,jade,htm,html,php}', '!{,*/}/_*.{pug,jade,htm,html,php}'],
           ext: '.html'
         }]
-      }
-    },
-
-    //---------------------------------------------------------------------------------------------------------MODERNIZR
-
-
-    modernizr: {
-      dist: {
-        crawl: false,
-        customTests: [],
-        // Avoid unnecessary builds
-        cache: true,
-        // Path to the build you're using for development.
-        devFile: false,
-        dest: '<%= config.dist.scripts %>/modernizr.js',
-        options: [
-          'domPrefixes',
-          'prefixes',
-          'prefixed',
-          'testAllProps',
-          'testProp',
-          'testStyles',
-          'html5shiv',
-          'setClasses'
-        ],
-        uglify: true,
-        tests: [
-          'cssanimations', 'csstransitions', 'flexbox', 'flexboxlegacy'
-
-          /*'applicationcache', 'audio', 'canvas', 'canvastext', 'geolocation', 'hashchange', 'history', 'indexeddb',
-          'svg', 'touchevents', 'video', 'webgl', 'websockets', 'cssanimations', 'backgroundsize', 'bgsizecover',
-          'boxshadow', 'csscolumns', 'ellipsis', 'cssfilters', 'flexbox', 'flexboxlegacy', 'flexboxtweener', 'flexwrap',
-          'fontface', 'generatedcontent', 'cssgradients', 'hsla', 'multiplebgs', 'opacity', 'cssreflections',
-          'cssremunit', 'rgba', 'textshadow', 'csstransforms', 'csstransforms3d', 'csstransitions', 'localstorage',
-          'sessionstorage', 'websqldatabase', 'svgclippaths', 'svgfilters', 'inlinesvg', 'videoautoplay', 'webworkers'*/
-        ]
       }
     },
 
@@ -247,11 +211,11 @@ module.exports = function (grunt) {
 
   // Default task
   grunt.registerTask('default', [
-    'clean', 'sass:development', 'uglify', 'modernizr', 'copy:main', 'pug', 'watch'
+    'clean', 'sass:development', 'uglify', 'copy:main', 'pug', 'watch'
   ]);
   // Stage task for stage environement
   grunt.registerTask('stage', [
-    'clean', 'sass:stage', 'uglify', 'modernizr', 'copy:main', 'pug'
+    'clean', 'sass:stage', 'uglify', 'copy:main', 'pug'
   ]);
 
 };

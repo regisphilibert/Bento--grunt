@@ -11,3 +11,6 @@ mixin Nav(item)
 				ul.phi-MainNav__sub
 					each subitem in item.children
 						+Nav(subitem)
+
+mixin Bonjour(name)
+	p Bonjour #{name}

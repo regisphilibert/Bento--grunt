@@ -22,3 +22,15 @@ Array.prototype.forEach.call(emailRots, function(el, i){
         el.innerHTML = email
     }
 });
+
+function getDaysInMonth(month, year) {
+     var date = new Date(year, month, 1);
+     var days = [];
+     while (date.getMonth() === month) {
+        days.push(new Date(date));
+        date.setDate(date.getDate() + 1);
+     }
+     return days;
+}
+
+console.log(getDaysInMonth(3, 2017))

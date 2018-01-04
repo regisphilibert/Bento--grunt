@@ -1,10 +1,15 @@
 :root{
+	--cDark:#C2D8B9;
+	--cBackground:#FFFCF7;
+	--cText:#444;
+	--cWhite:var(--cBackground);
+}
+body.warm{
 	--cDark:hsla(16%, 72%, 53%, 1);
 	--cBackground:hsla(51%, 58%, 82%, 1);
 	--cText:hsla(25%, 51%, 13%, 1);
 	--cWhite:hsla(51%, 58%, 82%, 1);
 }
-
 body.icy{
 	--cDark:#59A5D8;
 	--cBackground:#91E5F6;
@@ -54,6 +59,9 @@ a{
 	font-weight:$fwSemiBold;
 	color:var(--cText);
 	display: block;
+	small{
+		font-size: 0.5em;
+	}
 	span, .fa{
 		display: inline-block;
 		vertical-align: middle
