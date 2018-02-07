@@ -86,7 +86,7 @@ module.exports = function (grunt) {
     less: {
         development: {
           options: {
-            paths: ['<%= config.src.styles %>'],
+            paths: ['<%= config.src.less %>'],
             modifyVars: {
               configEnv: 'development',
             }
@@ -97,7 +97,7 @@ module.exports = function (grunt) {
         },
         stage: {
           options: {
-            paths: ['<%= config.src.styles %>'],
+            paths: ['<%= config.src.less %>'],
             modifyVars: {
               configEnv: 'stage',
             }

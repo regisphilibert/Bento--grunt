@@ -53,8 +53,12 @@ main{
 }
 a{
 	color:inherit;
+	text-decoration:inherit;
 }
-.phi-Logo{
+li{
+	margin:0.5em 0;
+}
+.ben-Logo{
 	font-size: 30px;
 	font-weight:$fwSemiBold;
 	color:var(--cText);
@@ -70,12 +74,12 @@ a{
 		font-size:50px;
 	}
 }
-ul.phi-MainNav, ul.phi-MainNav__sub{
+ul.ben-MainNav, ul.ben-MainNav__sub{
 	list-style:none;
 	padding:0;
 	margin-bottom:0;
 }
-.phi-MainNav{
+.ben-MainNav{
 	display:flex;
 	justify-content:flex-start;
 	font-weight:$fwSemiBold;
@@ -86,22 +90,22 @@ ul.phi-MainNav, ul.phi-MainNav__sub{
 		color:inherit;
 	}
 }
-.phi-MainNav__sub{
+.ben-MainNav__sub{
 	display: none;
 	position: absolute;
 	top:100%;
 	left:-1px;
 	background:var(--cDark);
 	//border:1px solid black;
-	.phi-MainNav__sub{
+	.ben-MainNav__sub{
 		left:100%;
 		top:0;
 	}
-	.phi-MainNav__item:nth-child(odd){
+	.ben-MainNav__item:nth-child(odd){
 		background:var(--cText);
 		color:var(--cWhite);
 	}
-	.phi-MainNav__item--has-children{
+	.ben-MainNav__item--has-children{
 		&:before{
 			content:">";
 			float:right;
@@ -109,19 +113,19 @@ ul.phi-MainNav, ul.phi-MainNav__sub{
 		}
 	}
 }
-.phi-MainNav__item{
+.ben-MainNav__item{
 	padding:5px 10px;
 	position: relative;
 	&:hover{
-		& > .phi-MainNav__sub{
+		& > .ben-MainNav__sub{
 			display: block;
 		}
 	}
-	.phi-MainNav__item{
+	.ben-MainNav__item{
 		//border-bottom:1px solid black;
 		color:black;
 	}
 }
-body .phi-Well{
+body .ben-Well{
 	background-color:var(--cDark);
 }
