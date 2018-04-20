@@ -22,6 +22,8 @@
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-modernizr": "^1.0.2",
+    "grunt-yaml": "^0.4.2",
+    "livereload-js": "^2.3.0",
     "load-grunt-tasks": "^3.5.0"
   }
 }

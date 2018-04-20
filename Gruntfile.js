@@ -41,7 +41,9 @@ module.exports = function (grunt) {
         images: '<%= config.src.root %>/images/',
         scripts: '<%= config.src.root %>/scripts/{,*/}*.js',
         sass: '<%= config.src.root %>/sass',
-        less: '<%= config.src.root %>/less'
+        less: '<%= config.src.root %>/less',
+        yaml: '<%= config.src.root %>/yaml',
+        data: 'data'
       },
       dist: {
         root: 'dist',
@@ -135,7 +137,7 @@ module.exports = function (grunt) {
           //data: {debug: false, timestamp: '<%= grunt.template.today("yyyy-mm-dd hh:mm:ss") %>'},
           data: function(dest, src) {
             // Return an object of data to pass to templates
-            return require('./data/globals.json');
+            return require('./data/main.json');
           }
         },
         files: [{
@@ -159,6 +161,19 @@ module.exports = function (grunt) {
       },
     },
 
+    //---- yaml
+  
+    yaml: {
+      default: {
+        options: {
+          ignored: /^_/,
+        },
+        files: [
+          {expand: true, cwd: '<%= config.src.yaml %>', src: ['**/*.yaml'], dest: '<%= config.src.data %>'}
+        ]
+      },
+    },
+
     //-------------------------------------------------------------------------------------------------------------WATCH
 
 
@@ -168,6 +183,15 @@ module.exports = function (grunt) {
         tasks: ['sass:development'],
         options: {
           spawn: false,
+          livereload: true
+        },
+      },
+      yaml: {
+        files: '<%= config.src.yaml %>/**/*.yaml',
+        tasks: ['yaml', 'sass:development', 'pug:dist'],
+        options: {
+          spawn: false,
+          livereload: true
         },
       },
       less: {
@@ -182,6 +206,7 @@ module.exports = function (grunt) {
         tasks: ['uglify'],
         options: {
           spawn: false,
+          livereload: true
         },
       },
       html: {
@@ -189,6 +214,7 @@ module.exports = function (grunt) {
         tasks: ['pug:dist'],
         options: {
           spawn: false,
+          livereload: true
         },
       },
     },
@@ -211,7 +237,7 @@ module.exports = function (grunt) {
 
   // Default task
   grunt.registerTask('default', [
-    'clean', 'sass:development', 'uglify', 'copy:main', 'pug', 'watch'
+    'clean', 'yaml', 'sass:development', 'uglify', 'copy:main', 'pug', 'watch'
   ]);
   // Stage task for stage environement
   grunt.registerTask('stage', [
